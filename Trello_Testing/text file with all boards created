@@ -1,0 +1,23 @@
+ "boards": [
+        {
+            "id": "629fe056639c007c5ce08248",
+            "name": "PTest",
+            "closed": false,
+            "idOrganization": "629fd41f7e0c6778e83b1a90",
+            "pinned": false
+        },
+        {
+            "id": "629ff9c3da74317aaa7f8cbc",
+            "name": "ZTest",
+            "closed": false,
+            "idOrganization": "629fd41f7e0c6778e83b1a90",
+            "pinned": false
+        },
+        {
+            "id": "629fffbd5f6bc26c1eaa78f0",
+            "name": "ZTest",
+            "closed": false,
+            "idOrganization": "629fd41f7e0c6778e83b1a90",
+            "pinned": false
+        }
+    ]
