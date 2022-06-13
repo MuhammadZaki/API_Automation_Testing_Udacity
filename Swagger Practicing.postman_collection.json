@@ -185,7 +185,7 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData.firstName).to.eql(\"Muhammad\");\r",
 									"    pm.expect(jsonData.lastName).to.eql(\"Zaki\");\r",
-									"    console.log(jsonData.firstName)\r",
+									"    console.log(jsonData.firstName);\r",
 									"});\r",
 									""
 								],
