@@ -44,12 +44,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
-							"protocol": "https",
+							"raw": "{{BaseUrl}}/api/v1/Authors",
 							"host": [
-								"fakerestapi",
-								"azurewebsites",
-								"net"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -93,12 +90,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
-							"protocol": "https",
+							"raw": "{{BaseUrl}}/api/v1/Authors",
 							"host": [
-								"fakerestapi",
-								"azurewebsites",
-								"net"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -137,12 +131,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors",
-							"protocol": "https",
+							"raw": "{{BaseUrl}}/api/v1/Authors",
 							"host": [
-								"fakerestapi",
-								"azurewebsites",
-								"net"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -157,7 +148,29 @@
 					"name": "Update Author data",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 0,\n  \"idBook\": 0,\n  \"firstName\": \"Muhammad\",\n  \"lastName\": \"Zaki\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}//api/v1/Authors/5",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"",
+								"api",
+								"v1",
+								"Authors",
+								"5"
+							]
+						}
 					},
 					"response": []
 				},
@@ -172,8 +185,9 @@
 									"    var jsonData = pm.response.json();\r",
 									"    pm.expect(jsonData.firstName).to.eql(\"Muhammad\");\r",
 									"    pm.expect(jsonData.lastName).to.eql(\"Zaki\");\r",
+									"    console.log(jsonData.firstName)\r",
 									"});\r",
-									"console.log(jsonData.firstName)"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -183,12 +197,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/5",
-							"protocol": "https",
+							"raw": "{{BaseUrl}}/api/v1/Authors/5",
 							"host": [
-								"fakerestapi",
-								"azurewebsites",
-								"net"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -220,12 +231,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/5",
-							"protocol": "https",
+							"raw": "{{BaseUrl}}/api/v1/Authors/5",
 							"host": [
-								"fakerestapi",
-								"azurewebsites",
-								"net"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
@@ -259,12 +267,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/5",
-							"protocol": "https",
+							"raw": "{{BaseUrl}}/api/v1/Authors/authors/books/5",
 							"host": [
-								"fakerestapi",
-								"azurewebsites",
-								"net"
+								"{{BaseUrl}}"
 							],
 							"path": [
 								"api",
