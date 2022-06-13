@@ -19,13 +19,13 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									"pm.test(\"permissionLevel\"), () => {\r",
+									"pm.test(\"Permission Level\"), () => {\r",
 									"    pm.expect(response.permissionLevel).to.eql(\"private\");\r",
 									"};\r",
-									"pm.test(\"canBePublic\"), () => {\r",
+									"pm.test(\"Can Be Public\"), () => {\r",
 									"    pm.expect(response.canBePublic).to.eql(true);\r",
 									"};\r",
-									"pm.test(\"canInvite\"), () => {\r",
+									"pm.test(\"Can Invite\"), () => {\r",
 									"    pm.expect(response.canInvite).to.eql(true);\r",
 									"};"
 								],
@@ -37,22 +37,18 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://api.trello.com/1/boards/?name=ZTest&key={{key}}&token={{token}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/boards/?name=ReSubmissionUdacity&key={{key}}&token={{token}}",
 							"host": [
-								"api",
-								"trello",
-								"com"
+								"{{BaseURL}}"
 							],
 							"path": [
-								"1",
 								"boards",
 								""
 							],
 							"query": [
 								{
 									"key": "name",
-									"value": "ZTest"
+									"value": "ReSubmissionUdacity"
 								},
 								{
 									"key": "key",
@@ -76,9 +72,15 @@
 								"exec": [
 									"const response = pm.response.json();\r",
 									"console.log(response.boards);\r",
-									"pm.test(\"No of boards above 1\"), () => {\r",
+									"\r",
+									"pm.test(\"No of boards is above 1\"), () => {\r",
 									"    pm.expect(response.boards).to.above[1];\r",
-									"};"
+									"};\r",
+									"pm.environment.set(\"FirstBoardID\", \"response.boards[0].id\");\r",
+									"pm.environment.set(\"LastBoardID\", \"response.boards[4].id\");\r",
+									"\r",
+									"console.log(\"First Board ID\", response.boards[0].id);\r",
+									"console.log(\"Last Board ID\", response.boards[4].id);"
 								],
 								"type": "text/javascript"
 							}
@@ -88,15 +90,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.trello.com/1/members/me?boards=open&key={{key}}&token={{token}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/members/me?boards=open&key={{key}}&token={{token}}",
 							"host": [
-								"api",
-								"trello",
-								"com"
+								"{{BaseURL}}"
 							],
 							"path": [
-								"1",
 								"members",
 								"me"
 							],
@@ -137,15 +135,11 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://api.trello.com/1/boards/629fd561b5c7b82ec4c54bed?key={{key}}&token={{token}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/boards/629fd561b5c7b82ec4c54bed?key={{key}}&token={{token}}",
 							"host": [
-								"api",
-								"trello",
-								"com"
+								"{{BaseURL}}"
 							],
 							"path": [
-								"1",
 								"boards",
 								"629fd561b5c7b82ec4c54bed"
 							],
@@ -195,15 +189,11 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://api.trello.com/1/lists?name=Zaki&idBoard=629fffbd5f6bc26c1eaa78f0&key={{key}}&token={{token}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/lists?name=Zaki&idBoard=629fffbd5f6bc26c1eaa78f0&key={{key}}&token={{token}}",
 							"host": [
-								"api",
-								"trello",
-								"com"
+								"{{BaseURL}}"
 							],
 							"path": [
-								"1",
 								"lists"
 							],
 							"query": [
@@ -239,7 +229,13 @@
 									"console.log(response);\r",
 									"pm.test(\"No of lists is 3\"), () => {\r",
 									"    pm.expect(response).to.eql[3];\r",
-									"};"
+									"};\r",
+									"\r",
+									"pm.environment.set(\"FirstListID\", \"response[0].id\");\r",
+									"pm.environment.set(\"LastListID\", \"response[2].id\");\r",
+									"\r",
+									"console.log(\"First List ID\", response[0].id);\r",
+									"console.log(\"Last List ID\", response[2].id);"
 								],
 								"type": "text/javascript"
 							}
@@ -249,17 +245,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://api.trello.com/1/boards/629ff9c3da74317aaa7f8cbc/lists?key={{key}}&token={{token}}",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/boards/629fe056639c007c5ce08248/lists?key={{key}}&token={{token}}",
 							"host": [
-								"api",
-								"trello",
-								"com"
+								"{{BaseURL}}"
 							],
 							"path": [
-								"1",
 								"boards",
-								"629ff9c3da74317aaa7f8cbc",
+								"629fe056639c007c5ce08248",
 								"lists"
 							],
 							"query": [
@@ -305,15 +297,11 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "https://api.trello.com/1/lists/62a003920897c869a6d8e6b7/closed?key={{key}}&token={{token}}&value=true",
-							"protocol": "https",
+							"raw": "{{BaseURL}}/lists/62a003920897c869a6d8e6b7/closed?key={{key}}&token={{token}}&value=true",
 							"host": [
-								"api",
-								"trello",
-								"com"
+								"{{BaseURL}}"
 							],
 							"path": [
-								"1",
 								"lists",
 								"62a003920897c869a6d8e6b7",
 								"closed"
@@ -337,6 +325,26 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
