@@ -112,7 +112,12 @@
 								"exec": [
 									"pm.test(\" firstname is mandatory\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
-									"});"
+									"});\r",
+									"\r",
+									"pm.test(\" lastname is mandatory\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -123,7 +128,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 2,\r\n  \"idBook\": 4,\r\n  \"firstName\": ,\r\n  \"lastName\": \"Zaki\"\r\n}",
+							"raw": "{\r\n  \"id\": 2,\r\n  \"idBook\": 4,\r\n  //\"firstName\": ,\r\n  \"lastName\": \"Zaki\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
