@@ -275,19 +275,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var jsonData = pm.response.json();\r",
+									"const response = pm.response.json();\r",
+									"\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
+									"\r",
 									"pm.test(\"check closed property\", function () {\r",
-									"    pm.expect(jsonData.closed).to.eql(true);\r",
+									"    pm.expect(response.closed).to.eql(true);\r",
 									"});\r",
+									"\r",
 									"pm.test(\"Set-Cookie is present\", function () {\r",
 									"    pm.response.to.have.header(\"Set-Cookie\");\r",
 									"});\r",
-									"pm.test(\"check Set-Cookie header data\", function () {\r",
-									"    pm.expect(jsonData.header.Set-Cookie).to.include(\"isEnterpriseAdmin%3Dfalse\");\r",
-									"});"
+									"\r",
+									"/* var koko = postman.getResponseHeader(\"Set-Cookie\");\r",
+									"console.log(koko); */\r",
+									"\r",
+									"pm.test(\"check Set-Cookies header data\", () => {\r",
+									"    pm.expect(postman.getResponseHeader(\"Set-Cookie\")).to.include(\"isEnterpriseAdmin%3Dfalse\")\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
